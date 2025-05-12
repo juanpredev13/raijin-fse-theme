@@ -77,3 +77,28 @@ require_once get_theme_file_path( 'inc/register-block-styles.php' );
 
 // Block pattern and block category examples.
 require_once get_theme_file_path( 'inc/register-block-patterns.php' );
+
+/**
+ * Enqueue custom blocks assets.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function raijin_enqueue_custom_blocks() {
+	wp_enqueue_script(
+		'raijin-blocks',
+		get_theme_file_uri( 'dist/blocks.js' ),
+		array( 'wp-blocks', 'wp-element', 'wp-editor' ),
+		RAIJIN_VERSION,
+		true
+	);
+
+	wp_enqueue_style(
+		'raijin-blocks-style',
+		get_theme_file_uri( 'dist/blocks.css' ),
+		array(),
+		RAIJIN_VERSION
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'raijin_enqueue_custom_blocks' );
