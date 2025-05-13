@@ -1,0 +1,76 @@
+// /**
+//  * The following styles get applied inside the editor only.
+//  */
+
+//  .wp-block-custom-blocks-hero-section {
+//     .hero-image-placeholder {
+//       min-height: 300px;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//       justify-content: center;
+//       border: 2px dashed #ccc;
+//       margin-bottom: 20px;
+//     }
+  
+//     .hero-image-wrapper {
+//       position: relative;
+      
+//       .change-image-button {
+//         position: absolute;
+//         top: 10px;
+//         right: 10px;
+//         opacity: 0.8;
+        
+//         &:hover {
+//           opacity: 1;
+//         }
+//       }
+//     }
+  
+//     // Make cards more visible in the editor
+//     .card {
+//       border: 1px dashed #ccc;
+      
+//       // Make sure cards are visible in the editor even when they would be positioned off-screen
+//       &.card-stats,
+//       &.card-notification {
+//         position: relative;
+//         margin: 10px 0;
+//         left: auto;
+//         right: auto;
+//         top: auto;
+//       }
+      
+//       &.card-class {
+//         position: relative;
+//         margin: 10px 0;
+//         bottom: auto;
+//         left: auto;
+//       }
+//     }
+  
+//     // Add some spacing in the editor
+//     .hero-content {
+//       padding: 20px;
+//       border: 1px dashed #eee;
+//       margin-bottom: 20px;
+//     }
+//   }
+  
+//   // When the block is selected, highlight the editable areas
+//   .is-selected .wp-block-custom-blocks-hero-section {
+//     .hero-headline,
+//     .hero-description,
+//     .join-btn,
+//     .watch-btn span,
+//     .card-content h3,
+//     .card-content p,
+//     .join-now-btn {
+//       outline: 1px dashed #ddd;
+      
+//       &:hover {
+//         outline: 1px solid #999;
+//       }
+//     }
+//   }

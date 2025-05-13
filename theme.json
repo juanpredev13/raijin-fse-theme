@@ -6,29 +6,29 @@
 		"color": {
 			"palette": [
 				{
-					"slug": "base",
-					"color": "#1e1e1e",
-					"name": "Base"
+					"slug": "polynesian-blue",
+					"color": "#0e4e8a",
+					"name": "Polynesian Blue"
 				},
 				{
-					"slug": "contrast",
-					"color": "#f0f0f0",
-					"name": "Contrast"
+					"slug": "satin-sheen-gold",
+					"color": "#b9963f",
+					"name": "Satin Sheen Gold"
 				},
 				{
-					"slug": "primary",
-					"color": "#0073aa",
-					"name": "Primary"
+					"slug": "fire-engine-red",
+					"color": "#d82128",
+					"name": "Fire Engine Red"
 				},
 				{
-					"slug": "secondary",
-					"color": "#00a0d2",
-					"name": "Secondary"
+					"slug": "antiflash-white",
+					"color": "#e8e7ec",
+					"name": "Antiflash White"
 				},
 				{
-					"slug": "transparent",
-					"color": "transparent",
-					"name": "Transparent"
+					"slug": "raisin-black",
+					"color": "#252428",
+					"name": "Raisin Black"
 				}
 			],
 			"gradients": [
@@ -92,8 +92,8 @@
 			]
 		},
 		"layout": {
-			"contentSize": "700px",
-			"wideSize": "1100px"
+			"contentSize": "800px",
+			"wideSize": "1200px"
 		},
 		"spacing": {
 			"units": [ "px", "em", "rem", "vh", "vw", "%" ],
@@ -294,7 +294,7 @@
 				"elements": {
 					"link": {
 						"typography": {
-							"textDecoration": "underline"
+							"textDecoration": "none"
 						},
 						":hover": {
 							"typography": {

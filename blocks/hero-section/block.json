@@ -1,0 +1,73 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "custom-blocks/hero-section",
+    "version": "0.1.0",
+    "title": "Hero Section",
+    "category": "design",
+    "icon": "cover-image",
+    "description": "A hero section with headline, description, CTA buttons and floating cards",
+    "supports": {
+      "html": false,
+      "align": ["wide", "full"]
+    },
+    "textdomain": "hero-section",
+    "attributes": {
+        "headline": {
+          "type": "string",
+          "default": "Studying Online is now much easier"
+        },
+        "highlightedText": {
+          "type": "string",
+          "default": "Studying"
+        },
+        "description": {
+          "type": "string",
+          "default": "TOTC is an interesting platform that will teach you in more an interactive way"
+        },
+        "primaryButtonText": {
+          "type": "string",
+          "default": "Join for free"
+        },
+        "secondaryButtonText": {
+          "type": "string",
+          "default": "Watch how it works"
+        },
+        "heroImage": {
+          "type": "object",
+          "default": {
+            "url": "",
+            "alt": "Student learning online",
+            "id": null
+          }
+        },
+        "statsCard": {
+          "type": "object",
+          "default": {
+            "title": "250k",
+            "description": "Assisted Student",
+            "icon": "calendar"
+          }
+        },
+        "notificationCard": {
+          "type": "object",
+          "default": {
+            "title": "Congratulations",
+            "description": "Your admission completed",
+            "icon": "email"
+          }
+        },
+        "classCard": {
+          "type": "object",
+          "default": {
+            "title": "User Experience Class",
+            "description": "Today at 12.00 PM",
+            "buttonText": "Join Now"
+          }
+        }
+      },
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css",
+    "viewScript": "file:./view.js"
+}
