@@ -102,3 +102,39 @@ function raijin_enqueue_custom_blocks() {
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'raijin_enqueue_custom_blocks' );
+
+/**
+ * Encolar estilos de bloques en el frontend.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function raijin_enqueue_block_styles() {
+	// Encolar el estilo principal de bloques
+	wp_enqueue_style(
+		'raijin-blocks-style',
+		get_theme_file_uri( 'dist/blocks.css' ),
+		array(),
+		RAIJIN_VERSION
+	);
+}
+add_action( 'wp_enqueue_scripts', 'raijin_enqueue_block_styles' );
+
+/**
+ * Encolar estilos de bloques en el editor.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function raijin_enqueue_editor_styles() {
+	// Encolar el estilo principal de bloques en el editor
+	wp_enqueue_style(
+		'raijin-blocks-editor-style',
+		get_theme_file_uri( 'dist/blocks.css' ),
+		array(),
+		RAIJIN_VERSION
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'raijin_enqueue_editor_styles' );

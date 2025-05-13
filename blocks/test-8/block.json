@@ -1,0 +1,38 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "raijin/test-8",
+    "version": "1.0.0",
+    "title": "test 8",
+    "category": "design",
+    "icon": "star-filled",
+    "description": "Un bloque personalizado para test 8",
+    "supports": {
+        "html": false,
+        "align": true
+    },
+    "attributes": {
+        "content": {
+            "type": "string",
+            "source": "html",
+            "selector": "p"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#333333"
+        },
+        "alignment": {
+            "type": "string",
+            "default": "left"
+        }
+    },
+    "textdomain": "test",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./edit.css",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js"
+}

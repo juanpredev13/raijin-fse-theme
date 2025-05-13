@@ -50,13 +50,38 @@ const createBlock = async () => {
 
         // Crear archivos
         createFile(
+            path.join(blockPath, 'block.json'),
+            template.blockJson(blockName, blockTitle)
+        );
+
+        createFile(
+            path.join(blockPath, 'edit.js'),
+            template.edit(blockName, blockTitle)
+        );
+
+        createFile(
+            path.join(blockPath, 'save.js'),
+            template.save(blockName, blockTitle)
+        );
+
+        createFile(
             path.join(blockPath, 'index.js'),
-            template.index(blockName, blockTitle)
+            template.index(blockName)
         );
 
         createFile(
             path.join(blockPath, 'style.scss'),
             template.style(blockName)
+        );
+
+        createFile(
+            path.join(blockPath, 'edit.scss'),
+            template.editStyle(blockName)
+        );
+
+        createFile(
+            path.join(blockPath, 'view.js'),
+            template.view(blockName)
         );
 
         // Actualizar blocks/index.js

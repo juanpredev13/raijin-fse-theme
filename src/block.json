@@ -1,0 +1,17 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "raijin/course-cards",
+    "version": "1.0.0",
+    "title": "Course Cards",
+    "category": "widgets",
+    "icon": "grid-view",
+    "description": "Display course cards in a grid layout",
+    "supports": {
+        "html": false
+    },
+    "textdomain": "raijin",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+} 

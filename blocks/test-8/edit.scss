@@ -1,0 +1,23 @@
+.editor-styles-wrapper .wp-block-raijin-test-8 {
+    padding: 2rem;
+    background: #007cba;
+    border-radius: 4px;
+    margin: 1rem 0;
+    
+    .block-editor-rich-text__editable {
+        min-height: 100px;
+        padding: 1rem;
+        border: 1px dashed #ccc;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+
+        &:focus {
+            border-color: #007cba;
+            box-shadow: 0 0 0 1px #007cba;
+        }
+    }
+
+    .block-editor-rich-text__editable[data-is-placeholder-visible="true"] {
+        color: #757575;
+    }
+}
