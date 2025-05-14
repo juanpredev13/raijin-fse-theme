@@ -3,6 +3,8 @@
  * and in the editor.
  */
 
+@use "sass:color";
+
 // Colores de la marca
 $polynesian-blue: #0e4e8a;
 $satin-sheen-gold: #b9963f;
@@ -11,327 +13,352 @@ $antiflash-white: #e8e7ec;
 $raisin-black: #252428;
 
 .wp-block-custom-blocks-hero-section {
-  .hero-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    min-height: 600px;
-    gap: 48px;
-    //   &::before{
-    //     content: "";
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     width: 100%;
-    //     height: 100%;
-    //     background: #27c8d5; // O el color que prefieras
-    //     clip-path: ellipse(100% 70% at 50% 30%);
-    //     z-index: -1;
-    //   }
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+
+  &.alignwide {
+    max-width: 1200px;
+    // padding: 0 2rem;
   }
 
-  .hero-content {
-    max-width: 540px;
-    min-width: 320px;
-    flex: 1 1 340px;
-    padding-right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  &.alignfull {
+    max-width: none;
+    padding: 0;
+  }
+}
 
-    .hero-headline {
-      font-size: 56px;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      font-weight: 800;
-      letter-spacing: -1px;
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  min-height: 600px;
+  gap: 80px;
+  position: relative;
+  //   &::before{
+  //     content: "";
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     background: #27c8d5; // O el color que prefieras
+  //     clip-path: ellipse(100% 70% at 50% 30%);
+  //     z-index: -1;
+  //   }
+}
 
-      .highlight {
-        color: #1CB0F6;
-        font-weight: 900;
-      }
-    }
+.hero-content {
+  max-width: 540px;
+  min-width: 320px;
+  flex: 1 1 340px;
+  padding-right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
 
-    .hero-description {
-      font-size: 20px;
-      margin-bottom: 36px;
-      color: #444;
-      opacity: 1;
-    }
+  .hero-headline {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
 
-    .cta-buttons {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 10px;
-
-      .join-btn {
-        background: $polynesian-blue;
-        color: #fff;
-        padding: 16px 36px;
-        border-radius: 30px;
-        font-size: 1.1rem;
-        font-weight: 700;
-        box-shadow: 0 4px 16px rgba(14, 78, 138, 0.08);
-        border: none;
-        transition: background 0.2s;
-
-        &:hover {
-          background: darken($polynesian-blue, 10%);
-        }
-      }
-
-      .watch-btn {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        background: transparent;
-        border: none;
-        font-weight: 600;
-        color: $polynesian-blue;
-        font-size: 1.1rem;
-        cursor: pointer;
-
-        .play-icon {
-          background: #eaf7fd;
-          color: #1CB0F6;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 22px;
-        }
-      }
+    .highlight {
+      color: #1CB0F6;
+      font-weight: 900;
     }
   }
 
-  .hero-image-container {
-    flex: 1 1 320px;
-    min-width: 260px;
-    max-width: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  .hero-description {
+    font-size: 20px;
+    margin-bottom: 36px;
+    color: #444;
+    opacity: 1;
+  }
 
-    .hero-image {
-      max-width: 370px;
-      min-width: 280px;
-      height: auto;
-      z-index: 1;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(28,176,246,0.08);
+  .cta-buttons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 10px;
+
+    .join-btn {
+      background: $polynesian-blue;
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(14, 78, 138, 0.08);
+      border: none;
+      transition: background 0.2s;
+
+      &:hover {
+        background: darken($polynesian-blue, 10%);
+      }
     }
 
-    .card {
-      position: absolute;
-      border-radius: 14px;
-      padding: 10px 16px;
-      box-shadow: 0 4px 18px rgba(28,176,246,0.10);
-      background: #fff;
+    .watch-btn {
       display: flex;
       align-items: center;
-      gap: 10px;
-      z-index: 2;
-      min-width: 140px;
-      max-width: 200px;
+      gap: 12px;
+      background: transparent;
+      border: none;
+      font-weight: 600;
+      color: $polynesian-blue;
+      font-size: 1.1rem;
+      cursor: pointer;
 
-      &.card-stats {
-        top: 10%;
-        left: -35%;
-      }
-
-      &.card-notification {
-        top: 55%;
-        right: -38%;
-      }
-
-      &.card-class {
-        bottom: 8%;
-        left: -35%;
-        flex-direction: column;
-        align-items: flex-start;
-        min-width: 220px;
-        max-width: 320px;
-        padding: 14px 18px;
-
-        .card-content-row {
-          display: flex;
-          align-items: center;
-          width: 100%;
-          gap: 12px;
-        }
-
-        .user-avatar {
-          margin-bottom: 0;
-          flex-shrink: 0;
-        }
-
-        .card-content {
-          gap: 2px;
-          align-items: flex-start;
-          justify-content: center;
-          width: 100%;
-          h3, p {
-            margin: 0;
-            text-align: left;
-          }
-        }
-
-        .join-now-btn {
-          margin-top: 12px;
-          width: 100%;
-          align-self: stretch;
-          justify-content: center;
-          background: $fire-engine-red;
-          color: #fff;
-          font-weight: 700;
-          font-size: 1rem;
-          transition: background 0.2s;
-          border: none;
-          &:hover {
-            background: darken($fire-engine-red, 10%);
-          }
-        }
-      }
-
-      .card-icon {
-        width: 28px;
-        height: 28px;
-        border-radius: 8px;
+      .play-icon {
         background: #eaf7fd;
         color: #1CB0F6;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 16px;
+        font-size: 22px;
       }
+    }
+  }
+}
 
-      .card-content {
+.hero-image-container {
+  flex: 1 1 320px;
+  min-width: 260px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
+  .hero-image {
+    max-width: 370px;
+    min-width: 280px;
+    height: auto;
+    z-index: 1;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(28, 176, 246, 0.08);
+  }
+
+  .card {
+    position: absolute;
+    border-radius: 12px;
+    padding: 6px 12px;
+    box-shadow: 0 2px 10px rgba(28, 176, 246, 0.10);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+    min-width: 100px;
+    max-width: 140px;
+    font-size: 0.85rem;
+
+    &.card-stats {
+      top: 10%;
+      left: -16%;
+    }
+
+    &.card-notification {
+      top: 55%;
+      right: -38%;
+    }
+
+    &.card-class {
+      bottom: 8%;
+      left: -15%;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 160px;
+      max-width: 200px;
+      padding: 10px 12px;
+
+      .card-content-row {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
+        align-items: center;
         width: 100%;
-        gap: 4px;
-      }
-
-      .card-content h3 {
-        font-size: 14px;
-        font-weight: 700;
-        margin-bottom: 0;
-        text-align: left;
-      }
-
-      .card-content p {
-        font-size: 12px;
-        opacity: 0.8;
-        margin-bottom: 0;
-        text-align: left;
-      }
-
-      .card-class .card-content {
-        gap: 6px;
-      }
-
-      .card-class .join-now-btn {
-        align-self: flex-start;
-        margin-top: 8px;
+        gap: 12px;
       }
 
       .user-avatar {
-        position: relative;
+        margin-bottom: 0;
+        flex-shrink: 0;
+      }
+
+      .card-content {
+        gap: 2px;
+        align-items: flex-start;
+        justify-content: center;
         width: 100%;
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
 
-        img {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-
-        .status-dot {
-          position: absolute;
-          width: 10px;
-          height: 10px;
-          background-color: #4CAF50;
-          border-radius: 50%;
-          bottom: 0;
-          left: 30px;
-          border: 2px solid white;
+        h3,
+        p {
+          margin: 0;
+          text-align: left;
         }
       }
 
       .join-now-btn {
-        padding: 8px 22px;
-        border-radius: 20px;
-        margin-top: 10px;
-        cursor: pointer;
-        font-weight: 600;
-        background: #f6f6f6;
-        color: #1CB0F6;
-        border: none;
+        margin-top: 12px;
+        width: 100%;
+        align-self: stretch;
+        justify-content: center;
+        background: $fire-engine-red;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
         transition: background 0.2s;
+        border: none;
 
         &:hover {
-          background: #eaf7fd;
+          background: darken($fire-engine-red, 10%);
         }
       }
     }
-  }
 
-  /* Responsive Design */
-  @media (max-width: 1024px) {
-    .hero-section {
-      flex-direction: column;
-      text-align: center;
-      padding: 40px 0 20px 0;
-    }
-
-    .hero-content {
-      margin-bottom: 40px;
-      padding-right: 0;
-    }
-
-    .cta-buttons {
+    .card-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: #eaf7fd;
+      color: #1CB0F6;
+      display: flex;
+      align-items: center;
       justify-content: center;
+      font-size: 13px;
     }
 
-    .card.card-stats {
-      top: 6%;
-      left: 0;
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      gap: 4px;
     }
 
-    .card.card-notification {
-      top: 40%;
-      right: 0;
+    .card-content h3 {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    .card-content p {
+      font-size: 10px;
+      opacity: 0.8;
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    .card-class .card-content {
+      gap: 6px;
+    }
+
+    .card-class .join-now-btn {
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+
+    .user-avatar {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .status-dot {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #4CAF50;
+        border-radius: 50%;
+        bottom: 0;
+        left: 30px;
+        border: 2px solid white;
+      }
+    }
+
+    .join-now-btn {
+      font-size: 0.9rem;
+      padding: 6px 14px;
+      border-radius: 14px;
+      margin-top: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      background: #f6f6f6;
+      color: #1CB0F6;
+      border: none;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #eaf7fd;
+      }
     }
   }
+}
 
-  @media (max-width: 768px) {
-    .hero-headline {
-      font-size: 32px;
-    }
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 0 20px 0;
+  }
 
-    .hero-section {
-      min-height: 400px;
-      padding: 24px 0 10px 0;
-    }
+  .hero-content {
+    margin-bottom: 40px;
+    padding-right: 0;
+  }
 
-    .hero-image-container {
-      display: none;
-    }
+  .cta-buttons {
+    justify-content: center;
+  }
 
-    .card {
-      position: static;
-      margin: 18px auto;
-      max-width: 260px;
-    }
+  .card.card-stats {
+    top: 6%;
+    left: 0;
+  }
+
+  .card.card-notification {
+    top: 40%;
+    right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-headline {
+    font-size: 32px;
+  }
+
+  .hero-section {
+    min-height: 400px;
+    padding: 24px 0 10px 0;
+  }
+
+  .hero-image-container {
+    display: none;
+  }
+
+  .card {
+    position: static;
+    margin: 18px auto;
+    max-width: 260px;
   }
 }

@@ -19,20 +19,18 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  */
 export default function save({ attributes }) {
   const {
-    headline,
-    description,
-    primaryButtonText,
-    secondaryButtonText,
-    heroImage,
-    statsCard,
-    notificationCard,
-    classCard,
+    headline = '',
+    description = '',
+    primaryButtonText = '',
+    secondaryButtonText = '',
+    heroImage = { url: '', alt: 'Student learning online', id: null },
+    statsCard = { title: '', description: '', icon: 'calendar' },
+    notificationCard = { title: '', description: '', icon: 'email' },
+    classCard = { title: '', description: '', buttonText: '' },
   } = attributes;
 
-  const blockProps = useBlockProps.save();
-
   return (
-    <div {...blockProps}>
+    <div {...useBlockProps.save()}>
       <div className="hero-section">
         <div className="hero-content">
           <RichText.Content
@@ -63,11 +61,13 @@ export default function save({ attributes }) {
 
         <div className="hero-image-container">
           {heroImage?.url && (
-            <img
-              src={heroImage.url || "/placeholder.svg"}
-              alt={heroImage.alt}
-              className="hero-image"
-            />
+            <div className="hero-image-wrapper">
+              <img
+                src={heroImage.url}
+                alt={heroImage.alt}
+                className="hero-image"
+              />
+            </div>
           )}
 
           {/* Floating Cards */}
@@ -78,11 +78,11 @@ export default function save({ attributes }) {
             <div className="card-content">
               <RichText.Content
                 tagName="h3"
-                value={statsCard.title}
+                value={statsCard?.title || ''}
               />
               <RichText.Content
                 tagName="p"
-                value={statsCard.description}
+                value={statsCard?.description || ''}
               />
             </div>
           </div>
@@ -94,11 +94,11 @@ export default function save({ attributes }) {
             <div className="card-content">
               <RichText.Content
                 tagName="h3"
-                value={notificationCard.title}
+                value={notificationCard?.title || ''}
               />
               <RichText.Content
                 tagName="p"
-                value={notificationCard.description}
+                value={notificationCard?.description || ''}
               />
             </div>
           </div>
@@ -108,17 +108,17 @@ export default function save({ attributes }) {
               <div className="card-content">
                 <RichText.Content
                   tagName="h3"
-                  value={classCard.title}
+                  value={classCard?.title || ''}
                 />
                 <RichText.Content
                   tagName="p"
-                  value={classCard.description}
+                  value={classCard?.description || ''}
                 />
               </div>
             </div>
             <RichText.Content
               tagName="button"
-              value={classCard.buttonText}
+              value={classCard?.buttonText || ''}
               className="join-now-btn"
             />
           </div>

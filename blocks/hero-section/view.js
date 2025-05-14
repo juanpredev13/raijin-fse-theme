@@ -1,21 +1,25 @@
 // Script para la vista del bloque
 document.addEventListener('DOMContentLoaded', () => {
-    const blocks = document.querySelectorAll('.wp-block-raijin-hero-section');
+    const blocks = document.querySelectorAll('.wp-block-custom-blocks-hero-section');
     
     blocks.forEach(block => {
-        // Aquí puedes agregar cualquier funcionalidad JavaScript
-        // que necesites para la vista del bloque
         console.log('Block hero-section inicializado');
 
-        // Ejemplo: Agregar animación al hacer hover
-        block.addEventListener('mouseenter', () => {
-            block.style.transform = 'translateY(-2px)';
-            block.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-        });
+        // Inicializar funcionalidad del bloque
+        const watchBtn = block.querySelector('.watch-btn');
+        if (watchBtn) {
+            watchBtn.addEventListener('click', () => {
+                // Aquí puedes agregar la funcionalidad para el botón de "Watch how it works"
+                console.log('Watch button clicked');
+            });
+        }
 
-        block.addEventListener('mouseleave', () => {
-            block.style.transform = 'translateY(0)';
-            block.style.boxShadow = 'none';
-        });
+        const joinNowBtn = block.querySelector('.join-now-btn');
+        if (joinNowBtn) {
+            joinNowBtn.addEventListener('click', () => {
+                // Aquí puedes agregar la funcionalidad para el botón de "Join Now"
+                console.log('Join Now button clicked');
+            });
+        }
     });
 });

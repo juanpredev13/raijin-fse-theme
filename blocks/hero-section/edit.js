@@ -39,35 +39,38 @@ import {
    */
   export default function Edit({ attributes, setAttributes }) {
     const {
-      headline,
-      highlightedText,
-      description,
-      primaryButtonText,
-      secondaryButtonText,
-      heroImage,
-      statsCard,
-      notificationCard,
-      classCard,
+      headline = '',
+      highlightedText = '',
+      description = '',
+      primaryButtonText = '',
+      secondaryButtonText = '',
+      heroImage = { url: '', alt: 'Student learning online', id: null },
+      statsCard = { title: '', description: '', icon: 'calendar' },
+      notificationCard = { title: '', description: '', icon: 'email' },
+      classCard = { title: '', description: '', buttonText: '' },
     } = attributes;
   
     const blockProps = useBlockProps();
   
     const onSelectImage = (media) => {
+      if (!media) return;
+      
       setAttributes({
         heroImage: {
-          url: media.url,
+          url: media.url || '',
           alt: media.alt || 'Student learning online',
-          id: media.id,
+          id: media.id || null,
         },
       });
     };
   
-    // Function to update nested object attributes
     const updateNestedAttribute = (parentKey, childKey, value) => {
+      if (!parentKey || !childKey) return;
+  
       setAttributes({
         [parentKey]: {
-          ...attributes[parentKey],
-          [childKey]: value,
+          ...(attributes[parentKey] || {}),
+          [childKey]: value || '',
         },
       });
     };
@@ -79,29 +82,29 @@ import {
             <TextControl
               label="Highlighted Text"
               value={highlightedText}
-              onChange={(value) => setAttributes({ highlightedText: value })}
+              onChange={(value) => setAttributes({ highlightedText: value || '' })}
             />
             <TextControl
               label="Primary Button Text"
               value={primaryButtonText}
-              onChange={(value) => setAttributes({ primaryButtonText: value })}
+              onChange={(value) => setAttributes({ primaryButtonText: value || '' })}
             />
             <TextControl
               label="Secondary Button Text"
               value={secondaryButtonText}
-              onChange={(value) => setAttributes({ secondaryButtonText: value })}
+              onChange={(value) => setAttributes({ secondaryButtonText: value || '' })}
             />
           </PanelBody>
   
           <PanelBody title="Stats Card Settings" initialOpen={false}>
             <TextControl
               label="Title"
-              value={statsCard.title}
+              value={statsCard?.title || ''}
               onChange={(value) => updateNestedAttribute('statsCard', 'title', value)}
             />
             <TextControl
               label="Description"
-              value={statsCard.description}
+              value={statsCard?.description || ''}
               onChange={(value) => updateNestedAttribute('statsCard', 'description', value)}
             />
           </PanelBody>
@@ -109,12 +112,12 @@ import {
           <PanelBody title="Notification Card Settings" initialOpen={false}>
             <TextControl
               label="Title"
-              value={notificationCard.title}
+              value={notificationCard?.title || ''}
               onChange={(value) => updateNestedAttribute('notificationCard', 'title', value)}
             />
             <TextControl
               label="Description"
-              value={notificationCard.description}
+              value={notificationCard?.description || ''}
               onChange={(value) => updateNestedAttribute('notificationCard', 'description', value)}
             />
           </PanelBody>
@@ -122,17 +125,17 @@ import {
           <PanelBody title="Class Card Settings" initialOpen={false}>
             <TextControl
               label="Title"
-              value={classCard.title}
+              value={classCard?.title || ''}
               onChange={(value) => updateNestedAttribute('classCard', 'title', value)}
             />
             <TextControl
               label="Description"
-              value={classCard.description}
+              value={classCard?.description || ''}
               onChange={(value) => updateNestedAttribute('classCard', 'description', value)}
             />
             <TextControl
               label="Button Text"
-              value={classCard.buttonText}
+              value={classCard?.buttonText || ''}
               onChange={(value) => updateNestedAttribute('classCard', 'buttonText', value)}
             />
           </PanelBody>
@@ -143,7 +146,7 @@ import {
             <RichText
               tagName="h1"
               value={headline}
-              onChange={(value) => setAttributes({ headline: value })}
+              onChange={(value) => setAttributes({ headline: value || '' })}
               placeholder="Enter headline here..."
               className="hero-headline"
               allowedFormats={['core/bold', 'core/italic']}
@@ -151,7 +154,7 @@ import {
             <RichText
               tagName="p"
               value={description}
-              onChange={(value) => setAttributes({ description: value })}
+              onChange={(value) => setAttributes({ description: value || '' })}
               placeholder="Enter description here..."
               className="hero-description"
             />
@@ -159,7 +162,7 @@ import {
               <RichText
                 tagName="button"
                 value={primaryButtonText}
-                onChange={(value) => setAttributes({ primaryButtonText: value })}
+                onChange={(value) => setAttributes({ primaryButtonText: value || '' })}
                 className="join-btn"
               />
               <div className="watch-btn">
@@ -167,7 +170,7 @@ import {
                 <RichText
                   tagName="span"
                   value={secondaryButtonText}
-                  onChange={(value) => setAttributes({ secondaryButtonText: value })}
+                  onChange={(value) => setAttributes({ secondaryButtonText: value || '' })}
                 />
               </div>
             </div>
@@ -195,17 +198,10 @@ import {
                     ) : (
                       <div className="hero-image-wrapper">
                         <img
-                          src={heroImage.url || "/placeholder.svg"}
+                          src={heroImage.url}
                           alt={heroImage.alt}
                           className="hero-image"
                         />
-                        <Button
-                          isSecondary
-                          onClick={open}
-                          className="change-image-button"
-                        >
-                          Replace Image
-                        </Button>
                       </div>
                     )}
                   </>
@@ -221,15 +217,13 @@ import {
               <div className="card-content">
                 <RichText
                   tagName="h3"
-                  value={statsCard.title}
+                  value={statsCard?.title || ''}
                   onChange={(value) => updateNestedAttribute('statsCard', 'title', value)}
-                  placeholder="Stats title..."
                 />
                 <RichText
                   tagName="p"
-                  value={statsCard.description}
+                  value={statsCard?.description || ''}
                   onChange={(value) => updateNestedAttribute('statsCard', 'description', value)}
-                  placeholder="Stats description..."
                 />
               </div>
             </div>
@@ -241,15 +235,13 @@ import {
               <div className="card-content">
                 <RichText
                   tagName="h3"
-                  value={notificationCard.title}
+                  value={notificationCard?.title || ''}
                   onChange={(value) => updateNestedAttribute('notificationCard', 'title', value)}
-                  placeholder="Notification title..."
                 />
                 <RichText
                   tagName="p"
-                  value={notificationCard.description}
+                  value={notificationCard?.description || ''}
                   onChange={(value) => updateNestedAttribute('notificationCard', 'description', value)}
-                  placeholder="Notification description..."
                 />
               </div>
             </div>
@@ -259,21 +251,19 @@ import {
                 <div className="card-content">
                   <RichText
                     tagName="h3"
-                    value={classCard.title}
+                    value={classCard?.title || ''}
                     onChange={(value) => updateNestedAttribute('classCard', 'title', value)}
-                    placeholder="Class title..."
                   />
                   <RichText
                     tagName="p"
-                    value={classCard.description}
+                    value={classCard?.description || ''}
                     onChange={(value) => updateNestedAttribute('classCard', 'description', value)}
-                    placeholder="Class description..."
                   />
                 </div>
               </div>
               <RichText
                 tagName="button"
-                value={classCard.buttonText}
+                value={classCard?.buttonText || ''}
                 onChange={(value) => updateNestedAttribute('classCard', 'buttonText', value)}
                 className="join-now-btn"
               />

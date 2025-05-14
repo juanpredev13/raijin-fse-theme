@@ -66,8 +66,8 @@ export default function Edit({ attributes, setAttributes }) {
 				<PanelBody title={__('Grid Settings', 'course-cards-block')}>
 					<TextControl
 						label={__('Section Title', 'course-cards-block')}
-						value={title}
-						onChange={(value) => setAttributes({ title: value })}
+						value={title || ''}
+						onChange={(value) => setAttributes({ title: value || '' })}
 					/>
 					<ToggleControl
 						label={__('Show "See all" link', 'course-cards-block')}
@@ -127,32 +127,32 @@ export default function Edit({ attributes, setAttributes }) {
 
 						<TextControl
 							label={__('Category', 'course-cards-block')}
-							value={course.category}
-							onChange={(value) => updateCourseAttribute(course.id, 'category', value)}
+							value={course.category || ''}
+							onChange={(value) => updateCourseAttribute(course.id, 'category', value || '')}
 						/>
 
 						<TextControl
 							label={__('Duration', 'course-cards-block')}
-							value={course.duration}
-							onChange={(value) => updateCourseAttribute(course.id, 'duration', value)}
+							value={course.duration || ''}
+							onChange={(value) => updateCourseAttribute(course.id, 'duration', value || '')}
 						/>
 
 						<TextControl
 							label={__('Course Title', 'course-cards-block')}
-							value={course.courseTitle}
-							onChange={(value) => updateCourseAttribute(course.id, 'courseTitle', value)}
+							value={course.courseTitle || ''}
+							onChange={(value) => updateCourseAttribute(course.id, 'courseTitle', value || '')}
 						/>
 
 						<TextControl
 							label={__('Description', 'course-cards-block')}
-							value={course.description}
-							onChange={(value) => updateCourseAttribute(course.id, 'description', value)}
+							value={course.description || ''}
+							onChange={(value) => updateCourseAttribute(course.id, 'description', value || '')}
 						/>
 
 						<TextControl
 							label={__('Instructor Name', 'course-cards-block')}
-							value={course.instructor}
-							onChange={(value) => updateCourseAttribute(course.id, 'instructor', value)}
+							value={course.instructor || ''}
+							onChange={(value) => updateCourseAttribute(course.id, 'instructor', value || '')}
 						/>
 
 						<MediaUploadCheck>
@@ -187,14 +187,14 @@ export default function Edit({ attributes, setAttributes }) {
 
 						<TextControl
 							label={__('Regular Price', 'course-cards-block')}
-							value={course.regularPrice}
-							onChange={(value) => updateCourseAttribute(course.id, 'regularPrice', value)}
+							value={course.regularPrice || ''}
+							onChange={(value) => updateCourseAttribute(course.id, 'regularPrice', value || '')}
 						/>
 
 						<TextControl
 							label={__('Sale Price', 'course-cards-block')}
-							value={course.salePrice}
-							onChange={(value) => updateCourseAttribute(course.id, 'salePrice', value)}
+							value={course.salePrice || ''}
+							onChange={(value) => updateCourseAttribute(course.id, 'salePrice', value || '')}
 						/>
 
 						<Button
@@ -212,8 +212,8 @@ export default function Edit({ attributes, setAttributes }) {
 					<RichText
 						tagName="h2"
 						className="course-cards-title"
-						value={title}
-						onChange={(value) => setAttributes({ title: value })}
+						value={title || ''}
+						onChange={(value) => setAttributes({ title: value || '' })}
 						placeholder={__('Section Title', 'course-cards-block')}
 					/>
 					{showSeeAll && (
@@ -242,15 +242,15 @@ export default function Edit({ attributes, setAttributes }) {
 								<RichText
 									tagName="span"
 									className="course-card-category"
-									value={course.category}
-									onChange={(value) => updateCourseAttribute(course.id, 'category', value)}
+									value={course.category || ''}
+									onChange={(value) => updateCourseAttribute(course.id, 'category', value || '')}
 									placeholder={__('Category', 'course-cards-block')}
 								/>
 								<RichText
 									tagName="span"
 									className="course-card-duration"
-									value={course.duration}
-									onChange={(value) => updateCourseAttribute(course.id, 'duration', value)}
+									value={course.duration || ''}
+									onChange={(value) => updateCourseAttribute(course.id, 'duration', value || '')}
 									placeholder={__('Duration', 'course-cards-block')}
 								/>
 							</div>
@@ -258,16 +258,16 @@ export default function Edit({ attributes, setAttributes }) {
 							<RichText
 								tagName="h3"
 								className="course-card-title"
-								value={course.courseTitle}
-								onChange={(value) => updateCourseAttribute(course.id, 'courseTitle', value)}
+								value={course.courseTitle || ''}
+								onChange={(value) => updateCourseAttribute(course.id, 'courseTitle', value || '')}
 								placeholder={__('Course Title', 'course-cards-block')}
 							/>
 
 							<RichText
 								tagName="p"
 								className="course-card-description"
-								value={course.description}
-								onChange={(value) => updateCourseAttribute(course.id, 'description', value)}
+								value={course.description || ''}
+								onChange={(value) => updateCourseAttribute(course.id, 'description', value || '')}
 								placeholder={__('Course Description', 'course-cards-block')}
 							/>
 
@@ -285,8 +285,8 @@ export default function Edit({ attributes, setAttributes }) {
 									<RichText
 										tagName="span"
 										className="instructor-name"
-										value={course.instructor}
-										onChange={(value) => updateCourseAttribute(course.id, 'instructor', value)}
+										value={course.instructor || ''}
+										onChange={(value) => updateCourseAttribute(course.id, 'instructor', value || '')}
 										placeholder={__('Instructor', 'course-cards-block')}
 									/>
 								</div>
@@ -295,15 +295,15 @@ export default function Edit({ attributes, setAttributes }) {
 									<RichText
 										tagName="span"
 										className="regular-price"
-										value={`$${course.regularPrice}`}
-										onChange={(value) => updateCourseAttribute(course.id, 'regularPrice', value.replace('$', ''))}
+										value={`$${course.regularPrice || ''}`}
+										onChange={(value) => updateCourseAttribute(course.id, 'regularPrice', (value || '').replace('$', ''))}
 										placeholder={__('$100', 'course-cards-block')}
 									/>
 									<RichText
 										tagName="span"
 										className="sale-price"
-										value={`$${course.salePrice}`}
-										onChange={(value) => updateCourseAttribute(course.id, 'salePrice', value.replace('$', ''))}
+										value={`$${course.salePrice || ''}`}
+										onChange={(value) => updateCourseAttribute(course.id, 'salePrice', (value || '').replace('$', ''))}
 										placeholder={__('$80', 'course-cards-block')}
 									/>
 								</div>
