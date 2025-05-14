@@ -3,10 +3,10 @@
     "apiVersion": 3,
     "name": "raijin/course-cards-block",
     "version": "1.0.0",
-    "title": "Course Cards",
+    "title": "Tarjetas de Cursos",
     "category": "design",
 	"icon": "grid-view",
-	"description": "Display course cards in a grid layout",
+	"description": "Muestra tarjetas de cursos en un diseño de cuadrícula",
     "supports": {
         "html": false,
         "align": ["wide", "full"]
@@ -14,11 +14,7 @@
 	"attributes": {
 		"title": {
 			"type": "string",
-			"default": "Recommended for you"
-		},
-		"showSeeAll": {
-			"type": "boolean",
-			"default": true
+			"default": "Recomendados para ti"
 		},
 		"courses": {
 			"type": "array",
@@ -26,14 +22,15 @@
 				{
 					"id": 1,
 					"imageUrl": "",
-					"category": "Design",
-					"duration": "3 Month",
+					"category": "Diseño",
+					"duration": "3 Meses",
 					"courseTitle": "AWS Certified solutions Architect",
 					"description": "Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor",
 					"instructor": "Lina",
 					"instructorImage": "",
 					"regularPrice": "100",
-					"salePrice": "80"
+					"salePrice": "80",
+					"courseUrl": ""
 				}
 			]
 		},

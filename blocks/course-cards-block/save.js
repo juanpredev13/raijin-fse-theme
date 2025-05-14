@@ -4,7 +4,6 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 export default function save({ attributes }) {
 	const {
 		title,
-		showSeeAll,
 		courses,
 		columns,
 	} = attributes;
@@ -20,23 +19,22 @@ export default function save({ attributes }) {
 						className="course-cards-title"
 						value={title}
 					/>
-					{showSeeAll && (
-						<a href="#" className="course-cards-see-all">See all</a>
-					)}
 				</div>
 
 				<div className={`course-cards-grid course-grid-${columns}`}>
 					{courses.map((course) => (
 						<div className="course-card" key={course.id}>
-							<div className="course-card-image-container">
-								{course.imageUrl && (
-									<img
-										src={course.imageUrl || "/placeholder.svg"}
-										alt={course.courseTitle}
-										className="course-card-image"
-									/>
-								)}
-							</div>
+							<a href={course.courseUrl || '#'} className="course-card-link">
+								<div className="course-card-image-container">
+									{course.imageUrl && (
+										<img
+											src={course.imageUrl || "/placeholder.svg"}
+											alt={course.courseTitle}
+											className="course-card-image"
+										/>
+									)}
+								</div>
+							</a>
 
 							<div className="course-card-meta">
 								<RichText.Content
@@ -91,6 +89,11 @@ export default function save({ attributes }) {
 										value={`$${course.salePrice}`}
 									/>
 								</div>
+							</div>
+							<div className="course-card-actions">
+								<a href={course.courseUrl || '#'} className="course-card-button">
+									{__('Más información', 'course-cards-block')}
+								</a>
 							</div>
 						</div>
 					))}

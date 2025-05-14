@@ -19,7 +19,6 @@ import './editor.scss';
 export default function Edit({ attributes, setAttributes }) {
 	const {
 		title,
-		showSeeAll,
 		courses,
 		columns,
 	} = attributes;
@@ -30,14 +29,15 @@ export default function Edit({ attributes, setAttributes }) {
 		const newCourses = [...courses, {
 			id: Date.now(),
 			imageUrl: '',
-			category: 'Design',
-			duration: '3 Month',
-			courseTitle: 'New Course Title',
-			description: 'Course description goes here',
+			category: 'Diseño',
+			duration: '3 Meses',
+			courseTitle: 'Nuevo Curso',
+			description: 'Descripción del curso aquí',
 			instructor: 'Instructor',
 			instructorImage: '',
 			regularPrice: '100',
-			salePrice: '80'
+			salePrice: '80',
+			courseUrl: ''
 		}];
 		setAttributes({ courses: newCourses });
 	};
@@ -63,19 +63,14 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<div {...blockProps}>
 			<InspectorControls>
-				<PanelBody title={__('Grid Settings', 'course-cards-block')}>
+				<PanelBody title={__('Configuración de la Cuadrícula', 'course-cards-block')}>
 					<TextControl
-						label={__('Section Title', 'course-cards-block')}
+						label={__('Título de la Sección', 'course-cards-block')}
 						value={title || ''}
 						onChange={(value) => setAttributes({ title: value || '' })}
 					/>
-					<ToggleControl
-						label={__('Show "See all" link', 'course-cards-block')}
-						checked={showSeeAll}
-						onChange={(value) => setAttributes({ showSeeAll: value })}
-					/>
 					<RangeControl
-						label={__('Columns', 'course-cards-block')}
+						label={__('Columnas', 'course-cards-block')}
 						value={columns}
 						onChange={(value) => setAttributes({ columns: value })}
 						min={1}
@@ -85,13 +80,13 @@ export default function Edit({ attributes, setAttributes }) {
 						isPrimary
 						onClick={addCourse}
 					>
-						{__('Add Course', 'course-cards-block')}
+						{__('Agregar Curso', 'course-cards-block')}
 					</Button>
 				</PanelBody>
 
 				{courses.map((course) => (
 					<PanelBody
-						title={course.courseTitle || __('Course', 'course-cards-block')}
+						title={course.courseTitle || __('Curso', 'course-cards-block')}
 						initialOpen={false}
 						key={course.id}
 					>
@@ -108,8 +103,8 @@ export default function Edit({ attributes, setAttributes }) {
 											isSecondary={!!course.imageUrl}
 										>
 											{!course.imageUrl ?
-												__('Select Course Image', 'course-cards-block') :
-												__('Replace Image', 'course-cards-block')
+												__('Seleccionar Imagen del Curso', 'course-cards-block') :
+												__('Reemplazar Imagen', 'course-cards-block')
 											}
 										</Button>
 										{course.imageUrl && (
@@ -117,7 +112,7 @@ export default function Edit({ attributes, setAttributes }) {
 												onClick={() => updateCourseAttribute(course.id, 'imageUrl', '')}
 												isDestructive
 											>
-												{__('Remove Image', 'course-cards-block')}
+												{__('Eliminar Imagen', 'course-cards-block')}
 											</Button>
 										)}
 									</div>
@@ -126,31 +121,31 @@ export default function Edit({ attributes, setAttributes }) {
 						</MediaUploadCheck>
 
 						<TextControl
-							label={__('Category', 'course-cards-block')}
+							label={__('Categoría', 'course-cards-block')}
 							value={course.category || ''}
 							onChange={(value) => updateCourseAttribute(course.id, 'category', value || '')}
 						/>
 
 						<TextControl
-							label={__('Duration', 'course-cards-block')}
+							label={__('Duración', 'course-cards-block')}
 							value={course.duration || ''}
 							onChange={(value) => updateCourseAttribute(course.id, 'duration', value || '')}
 						/>
 
 						<TextControl
-							label={__('Course Title', 'course-cards-block')}
+							label={__('Título del Curso', 'course-cards-block')}
 							value={course.courseTitle || ''}
 							onChange={(value) => updateCourseAttribute(course.id, 'courseTitle', value || '')}
 						/>
 
 						<TextControl
-							label={__('Description', 'course-cards-block')}
+							label={__('Descripción', 'course-cards-block')}
 							value={course.description || ''}
 							onChange={(value) => updateCourseAttribute(course.id, 'description', value || '')}
 						/>
 
 						<TextControl
-							label={__('Instructor Name', 'course-cards-block')}
+							label={__('Nombre del Instructor', 'course-cards-block')}
 							value={course.instructor || ''}
 							onChange={(value) => updateCourseAttribute(course.id, 'instructor', value || '')}
 						/>
@@ -168,8 +163,8 @@ export default function Edit({ attributes, setAttributes }) {
 											isSecondary={!!course.instructorImage}
 										>
 											{!course.instructorImage ?
-												__('Select Instructor Image', 'course-cards-block') :
-												__('Replace Instructor Image', 'course-cards-block')
+												__('Seleccionar Imagen del Instructor', 'course-cards-block') :
+												__('Reemplazar Imagen del Instructor', 'course-cards-block')
 											}
 										</Button>
 										{course.instructorImage && (
@@ -177,7 +172,7 @@ export default function Edit({ attributes, setAttributes }) {
 												onClick={() => updateCourseAttribute(course.id, 'instructorImage', '')}
 												isDestructive
 											>
-												{__('Remove Instructor Image', 'course-cards-block')}
+												{__('Eliminar Imagen del Instructor', 'course-cards-block')}
 											</Button>
 										)}
 									</div>
@@ -186,22 +181,29 @@ export default function Edit({ attributes, setAttributes }) {
 						</MediaUploadCheck>
 
 						<TextControl
-							label={__('Regular Price', 'course-cards-block')}
+							label={__('Precio Regular', 'course-cards-block')}
 							value={course.regularPrice || ''}
 							onChange={(value) => updateCourseAttribute(course.id, 'regularPrice', value || '')}
 						/>
 
 						<TextControl
-							label={__('Sale Price', 'course-cards-block')}
+							label={__('Precio de Oferta', 'course-cards-block')}
 							value={course.salePrice || ''}
 							onChange={(value) => updateCourseAttribute(course.id, 'salePrice', value || '')}
+						/>
+
+						<TextControl
+							label={__('URL del Curso', 'course-cards-block')}
+							value={course.courseUrl || ''}
+							onChange={(value) => updateCourseAttribute(course.id, 'courseUrl', value || '')}
+							placeholder={__('https://ejemplo.com/curso', 'course-cards-block')}
 						/>
 
 						<Button
 							isDestructive
 							onClick={() => removeCourse(course.id)}
 						>
-							{__('Remove Course', 'course-cards-block')}
+							{__('Eliminar Curso', 'course-cards-block')}
 						</Button>
 					</PanelBody>
 				))}
@@ -214,29 +216,28 @@ export default function Edit({ attributes, setAttributes }) {
 						className="course-cards-title"
 						value={title || ''}
 						onChange={(value) => setAttributes({ title: value || '' })}
-						placeholder={__('Section Title', 'course-cards-block')}
+						placeholder={__('Título de la Sección', 'course-cards-block')}
 					/>
-					{showSeeAll && (
-						<span className="course-cards-see-all">See all</span>
-					)}
 				</div>
 
 				<div className={`course-cards-grid course-grid-${columns}`}>
 					{courses.map((course) => (
 						<div className="course-card" key={course.id}>
-							<div className="course-card-image-container">
-								{course.imageUrl ? (
-									<img
-										src={course.imageUrl || "/placeholder.svg"}
-										alt={course.courseTitle}
-										className="course-card-image"
-									/>
-								) : (
-									<div className="course-card-image-placeholder">
-										<span>{__('Select an image', 'course-cards-block')}</span>
-									</div>
-								)}
-							</div>
+							<a href={course.courseUrl || '#'} className="course-card-link">
+								<div className="course-card-image-container">
+									{course.imageUrl ? (
+										<img
+											src={course.imageUrl || "/placeholder.svg"}
+											alt={course.courseTitle}
+											className="course-card-image"
+										/>
+									) : (
+										<div className="course-card-image-placeholder">
+											<span>{__('Select an image', 'course-cards-block')}</span>
+										</div>
+									)}
+								</div>
+							</a>
 
 							<div className="course-card-meta">
 								<RichText
@@ -307,6 +308,11 @@ export default function Edit({ attributes, setAttributes }) {
 										placeholder={__('$80', 'course-cards-block')}
 									/>
 								</div>
+							</div>
+							<div className="course-card-actions">
+								<a href={course.courseUrl || '#'} className="course-card-button">
+									{__('Más información', 'course-cards-block')}
+								</a>
 							</div>
 						</div>
 					))}
