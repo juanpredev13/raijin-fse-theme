@@ -1,0 +1,103 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+
+// Variables de color de marca
+$polynesian-blue: #0e4e8a;
+$antiflash-white: #e8e7ec;
+$raisin-black: #252428;
+
+.wp-block-raijin-methodology-info {
+  // Add a block outline in the editor
+  outline: 1px solid #f0f0f0;
+  
+  // Make the block more visually distinct in the editor
+  &.is-selected {
+    outline: 2px solid #007cba;
+  }
+  
+  .methodology-info-color-settings {
+    margin-bottom: 16px;
+    
+    p {
+      margin-top: 16px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+  }
+  
+  // Ensure the block has proper spacing in the editor
+  .methodology-info-section {
+    padding: 60px 40px;
+    background: var(--wp--preset--color--raisin-black);
+    color: var(--wp--preset--color--antiflash-white);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(14, 78, 138, 0.08);
+    text-align: left;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  // Add some visual cues for editing
+  .methodology-info-title,
+  .methodology-info-description,
+  .methodology-info-button {
+    &:focus {
+      outline: 1px dashed rgba(255, 255, 255, 0.5);
+    }
+  }
+  
+  .methodology-info-title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 24px;
+  }
+
+  .methodology-info-description {
+    font-size: 22px;
+    color: var(--wp--preset--color--antiflash-white);
+    opacity: 0.95;
+    margin-bottom: 40px;
+  }
+
+  .methodology-info-button {
+    display: inline-block;
+    padding: 16px 36px;
+    background: var(--wp--preset--color--polynesian-blue);
+    color: #fff;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(14, 78, 138, 0.08);
+    border: none;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  
+  // Style the URL input button
+  .block-editor-url-input__button {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  
+  // Make the button container more visible in the editor
+  .methodology-info-button-container {
+    position: relative;
+    
+    .block-editor-url-input__button {
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "raijin/methodology-info",
+  "version": "0.1.0",
+  "title": "Methodology Info",
+  "category": "design",
+  "icon": "welcome-learn-more",
+  "description": "A section displaying methodology information with a title, description and call-to-action button",
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Online coaching lessons for remote learning."
+    },
+    "description": {
+      "type": "string",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempos Lorem ipsum dolor sitamet, consectetur adipiscing elit, sed do eiusmod tempor"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Start learning now"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": "#"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#1f2142"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "buttonColor": {
+      "type": "string",
+      "default": "#4ecdc4"
+    }
+  },
+  "textdomain": "methodology-info",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

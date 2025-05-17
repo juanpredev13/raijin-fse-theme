@@ -7,3 +7,4 @@ import { registerBlockType } from '@wordpress/blocks';
 import './test-8/';
 import './course-cards-block/';
 import './hero-section/';
+import './methodology-info/';
