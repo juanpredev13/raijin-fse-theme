@@ -9,7 +9,7 @@
 	margin: 0 auto;
 
 	.pricing-table-title {
-		font-size: 3.5rem;
+		font-size: var(--wp--preset--font-size--xx-large);
 		text-align: center;
 		color: #4ecdc4;
 		margin-bottom: 3rem;
@@ -45,27 +45,27 @@
 			}
 			
 			.pricing-plan-name {
-				font-size: 1.5rem;
+				font-size: var(--wp--preset--font-size--large);
 				margin-bottom: 1rem;
 				color: var(--wp--preset--color--primary);
 			}
 			
 			.pricing-plan-amount {
-				font-size: 2.5rem;
+				font-size: var(--wp--preset--font-size--x-large);
 				font-weight: bold;
 				margin-bottom: 0.5rem;
 				color: var(--wp--preset--color--primary);
 			}
 			
 			.pricing-plan-button {
-				font-size: 1.1rem;
+				font-size: var(--wp--preset--font-size--normal);
 				padding: 12px 24px;
 			}
 		}
 	}
 
 	.pricing-plan-name {
-		font-size: 1.3rem;
+		font-size: var(--wp--preset--font-size--medium);
 		margin-bottom: 1rem;
 	}
 
@@ -77,14 +77,14 @@
 	}
 
 	.pricing-plan-amount {
-		font-size: 2rem;
+		font-size: var(--wp--preset--font-size--large);
 		font-weight: bold;
 		margin-right: 0.25rem;
 	}
 
 	.pricing-plan-period {
 		color: #666;
-		font-size: 0.9rem;
+		font-size: var(--wp--preset--font-size--small);
 		margin-left: 0.25rem;
 	}
 
@@ -116,6 +116,7 @@
 		text-decoration: none;
 		font-weight: bold;
 		transition: opacity 0.3s ease;
+		font-size: var(--wp--preset--font-size--normal);
 		
 		&:hover {
 			opacity: 0.9;
@@ -136,7 +137,23 @@
 		}
 		
 		.pricing-table-title {
-			font-size: 2.5rem;
+			font-size: var(--wp--preset--font-size--x-large);
+		}
+
+		.pricing-plan-name {
+			font-size: var(--wp--preset--font-size--medium);
+		}
+
+		.pricing-plan-amount {
+			font-size: var(--wp--preset--font-size--large);
+		}
+
+		.pricing-plan-period {
+			font-size: var(--wp--preset--font-size--small);
+		}
+
+		.pricing-plan-button {
+			font-size: var(--wp--preset--font-size--normal);
 		}
 	}
 }
