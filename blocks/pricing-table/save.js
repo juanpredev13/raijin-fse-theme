@@ -19,7 +19,9 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  */
 export default function save({ attributes }) {
 	const { title, titleColor, iconColor, buttonColor, plans } = attributes;
-	const blockProps = useBlockProps.save();
+	const blockProps = useBlockProps.save({
+		className: 'wp-block-raijin-pricing-table'
+	});
 
 	return (
 		<div {...blockProps}>
@@ -75,16 +77,18 @@ export default function save({ attributes }) {
 								))}
 							</ul>
 							<div className="pricing-plan-footer">
-								<RichText.Content
-									tagName="a"
+								<a 
 									className="pricing-plan-button"
-									value={plan.buttonText}
 									href={plan.buttonUrl}
 									style={{ 
 										backgroundColor: buttonColor,
 										color: '#ffffff'
 									}}
-								/>
+								>
+									<RichText.Content
+										value={plan.buttonText}
+									/>
+								</a>
 							</div>
 						</div>
 					))}
