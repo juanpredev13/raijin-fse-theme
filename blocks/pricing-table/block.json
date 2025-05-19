@@ -1,0 +1,91 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "raijin/pricing-table",
+  "version": "0.1.0",
+  "title": "Pricing Table",
+  "category": "design",
+  "icon": "money-alt",
+  "description": "Display your pricing plans in an attractive table format",
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Affordable pricing"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "var(--wp--preset--color--primary)"
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "var(--wp--preset--color--primary)"
+    },
+    "buttonColor": {
+      "type": "string",
+      "default": "var(--wp--preset--color--red)"
+    },
+    "plans": {
+      "type": "array",
+      "default": [
+        {
+          "id": "free",
+          "name": "Like a pussy",
+          "price": "Free",
+          "period": "FOREVER",
+          "features": [
+            "Components-driven system",
+            "Sales-boosting landing pages",
+            "Awesome Feather icons pack"
+          ],
+          "buttonText": "Try for free",
+          "buttonUrl": "#",
+          "highlight": false,
+          "color": "var(--wp--preset--color--base)"
+        },
+        {
+          "id": "individual",
+          "name": "Individual",
+          "price": "$24",
+          "period": "MONTH",
+          "features": [
+            "Components-driven system",
+            "Sales-boosting landing pages",
+            "Awesome Feather icons pack",
+            "Themed into 3 different styles",
+            "Will help to learn Figma"
+          ],
+          "buttonText": "Regular license",
+          "buttonUrl": "#",
+          "highlight": true,
+          "highlightText": "BEST!",
+          "color": "var(--wp--preset--color--primary)"
+        },
+        {
+          "id": "corporate",
+          "name": "Corporate",
+          "price": "$12",
+          "period": "EDITOR",
+          "features": [
+            "Components-driven system",
+            "Sales-boosting landing pages",
+            "Awesome Feather icons pack",
+            "Themed into 3 different styles"
+          ],
+          "buttonText": "Extended license",
+          "buttonUrl": "#",
+          "highlight": false,
+          "color": "var(--wp--preset--color--secondary)"
+        }
+      ]
+    }
+  },
+  "textdomain": "pricing-table",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./edit.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js"
+}

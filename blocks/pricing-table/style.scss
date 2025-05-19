@@ -1,0 +1,142 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ */
+
+.wp-block-raijin-pricing-table {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	max-width: 1200px;
+	margin: 0 auto;
+
+	.pricing-table-title {
+		font-size: 3.5rem;
+		text-align: center;
+		color: #4ecdc4;
+		margin-bottom: 3rem;
+		font-weight: 700;
+	}
+
+	.pricing-table-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.pricing-plan {
+		background: var(--wp--preset--color--base);
+		border-radius: 8px;
+		padding: 2rem;
+		position: relative;
+		transition: transform 0.3s ease;
+		border: 2px solid transparent;
+		
+		&:hover {
+			transform: translateY(-5px);
+		}
+
+		&.pricing-plan-highlight {
+			transform: scale(1.05);
+			border: 2px solid var(--wp--preset--color--primary);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+			
+			&:hover {
+				transform: scale(1.05) translateY(-5px);
+			}
+			
+			.pricing-plan-name {
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+				color: var(--wp--preset--color--primary);
+			}
+			
+			.pricing-plan-amount {
+				font-size: 2.5rem;
+				font-weight: bold;
+				margin-bottom: 0.5rem;
+				color: var(--wp--preset--color--primary);
+			}
+			
+			.pricing-plan-button {
+				font-size: 1.1rem;
+				padding: 12px 24px;
+			}
+		}
+	}
+
+	.pricing-plan-name {
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+	}
+
+	.pricing-plan-price {
+		display: flex;
+		align-items: baseline;
+		white-space: nowrap;
+		margin-bottom: 1rem;
+	}
+
+	.pricing-plan-amount {
+		font-size: 2rem;
+		font-weight: bold;
+		margin-right: 0.25rem;
+	}
+
+	.pricing-plan-period {
+		color: #666;
+		font-size: 0.9rem;
+		margin-left: 0.25rem;
+	}
+
+	.pricing-plan-features {
+		list-style: none;
+		padding: 0;
+		margin: 2rem 0;
+	}
+
+	.pricing-plan-feature {
+		display: flex;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+
+	.pricing-plan-check {
+		margin-right: 0.5rem;
+		font-weight: bold;
+	}
+
+	.pricing-plan-footer {
+		margin-top: auto;
+	}
+
+	.pricing-plan-button {
+		display: inline-block;
+		padding: 10px 20px;
+		border-radius: 5px;
+		text-decoration: none;
+		font-weight: bold;
+		transition: opacity 0.3s ease;
+		
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+
+	// Responsive styles
+	@media (max-width: 768px) {
+		.pricing-table-container {
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		.pricing-plan {
+			width: 100%;
+			max-width: 400px;
+			margin-bottom: 2rem;
+		}
+		
+		.pricing-table-title {
+			font-size: 2.5rem;
+		}
+	}
+}
