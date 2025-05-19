@@ -49,25 +49,39 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const updatePlanAttribute = (index, attribute, value) => {
 		const newPlans = [...plans];
-		newPlans[index][attribute] = value;
+		newPlans[index] = {
+			...newPlans[index],
+			[attribute]: value
+		};
 		setAttributes({ plans: newPlans });
 	};
 
 	const addFeature = (planIndex) => {
 		const newPlans = [...plans];
-		newPlans[planIndex].features.push('New Feature');
+		newPlans[planIndex] = {
+			...newPlans[planIndex],
+			features: [...newPlans[planIndex].features, 'Nueva característica']
+		};
 		setAttributes({ plans: newPlans });
 	};
 
 	const removeFeature = (planIndex, featureIndex) => {
 		const newPlans = [...plans];
-		newPlans[planIndex].features.splice(featureIndex, 1);
+		newPlans[planIndex] = {
+			...newPlans[planIndex],
+			features: newPlans[planIndex].features.filter((_, index) => index !== featureIndex)
+		};
 		setAttributes({ plans: newPlans });
 	};
 
 	const updateFeature = (planIndex, featureIndex, value) => {
 		const newPlans = [...plans];
-		newPlans[planIndex].features[featureIndex] = value;
+		newPlans[planIndex] = {
+			...newPlans[planIndex],
+			features: newPlans[planIndex].features.map((feature, index) => 
+				index === featureIndex ? value : feature
+			)
+		};
 		setAttributes({ plans: newPlans });
 	};
 
@@ -75,11 +89,11 @@ export default function Edit({ attributes, setAttributes }) {
 		const newPlans = [...plans];
 		newPlans.push({
 			id: `plan-${Date.now()}`,
-			name: 'New Plan',
+			name: 'Nuevo Plan',
 			price: '$XX',
-			period: 'MONTH',
-			features: ['Feature 1', 'Feature 2'],
-			buttonText: 'Sign Up',
+			period: 'MES',
+			features: ['Característica 1', 'Característica 2'],
+			buttonText: 'EMPEZAR HOY',
 			buttonUrl: '#',
 			highlight: false,
 			color: '#f0f0f0'
@@ -88,27 +102,23 @@ export default function Edit({ attributes, setAttributes }) {
 	};
 
 	const removePlan = (index) => {
-		const newPlans = [...plans];
-		newPlans.splice(index, 1);
+		const newPlans = plans.filter((_, i) => i !== index);
 		setAttributes({ plans: newPlans });
 	};
 
 	const updatePlanColor = (planId, color) => {
-		const updatedPlans = plans.map(plan => {
-			if (plan.id === planId) {
-				return { ...plan, color };
-			}
-			return plan;
-		});
+		const updatedPlans = plans.map(plan => 
+			plan.id === planId ? { ...plan, color } : plan
+		);
 		setAttributes({ plans: updatedPlans });
 	};
 
 	return (
 		<div {...blockProps} className="wp-block-raijin-pricing-table">
 			<InspectorControls>
-				<PanelBody title={__('Pricing Table Settings', 'pricing-table')}>
+				<PanelBody title={__('Configuración de la tabla de precios', 'pricing-table')}>
 					<TextControl
-						label={__('Title', 'pricing-table')}
+						label={__('Título', 'pricing-table')}
 						value={title}
 						onChange={(value) => setAttributes({ title: value })}
 					/>
@@ -140,7 +150,7 @@ export default function Edit({ attributes, setAttributes }) {
 						isPrimary
 						onClick={addPlan}
 					>
-						{__('Add Plan', 'pricing-table')}
+						{__('Añadir Plan', 'pricing-table')}
 					</Button>
 				</PanelBody>
 
@@ -162,27 +172,27 @@ export default function Edit({ attributes, setAttributes }) {
 						initialOpen={false}
 					>
 						<TextControl
-							label={__('Plan Name', 'pricing-table')}
+							label={__('Nombre del Plan', 'pricing-table')}
 							value={plan.name}
 							onChange={(value) => updatePlanAttribute(planIndex, 'name', value)}
 						/>
 						<TextControl
-							label={__('Price', 'pricing-table')}
+							label={__('Precio', 'pricing-table')}
 							value={plan.price}
 							onChange={(value) => updatePlanAttribute(planIndex, 'price', value)}
 						/>
 						<TextControl
-							label={__('Period', 'pricing-table')}
+							label={__('Período', 'pricing-table')}
 							value={plan.period}
 							onChange={(value) => updatePlanAttribute(planIndex, 'period', value)}
 						/>
 						<TextControl
-							label={__('Button Text', 'pricing-table')}
+							label={__('Texto del Botón', 'pricing-table')}
 							value={plan.buttonText}
 							onChange={(value) => updatePlanAttribute(planIndex, 'buttonText', value)}
 						/>
 						<TextControl
-							label={__('Button URL', 'pricing-table')}
+							label={__('URL del Botón', 'pricing-table')}
 							value={plan.buttonUrl}
 							onChange={(value) => updatePlanAttribute(planIndex, 'buttonUrl', value)}
 						/>
@@ -200,7 +210,7 @@ export default function Edit({ attributes, setAttributes }) {
 							/>
 						</div>
 						<div className="pricing-table-features">
-							<p>{__('Features', 'pricing-table')}</p>
+							<p>{__('Características', 'pricing-table')}</p>
 							{plan.features.map((feature, featureIndex) => (
 								<div key={featureIndex} className="pricing-plan-feature-item">
 									<TextControl
@@ -212,7 +222,7 @@ export default function Edit({ attributes, setAttributes }) {
 										isSmall
 										onClick={() => removeFeature(planIndex, featureIndex)}
 									>
-										{__('Remove', 'pricing-table')}
+										{__('Eliminar', 'pricing-table')}
 									</Button>
 								</div>
 							))}
@@ -220,7 +230,7 @@ export default function Edit({ attributes, setAttributes }) {
 								isSecondary
 								onClick={() => addFeature(planIndex)}
 							>
-								{__('Add Feature', 'pricing-table')}
+								{__('Añadir Característica', 'pricing-table')}
 							</Button>
 						</div>
 						<div className="pricing-table-actions">
@@ -228,7 +238,7 @@ export default function Edit({ attributes, setAttributes }) {
 								isDestructive
 								onClick={() => removePlan(planIndex)}
 							>
-								{__('Remove Plan', 'pricing-table')}
+								{__('Eliminar Plan', 'pricing-table')}
 							</Button>
 						</div>
 					</PanelBody>
@@ -241,68 +251,73 @@ export default function Edit({ attributes, setAttributes }) {
 					className="pricing-table-title"
 					value={title}
 					onChange={(value) => setAttributes({ title: value })}
-					placeholder={__('Pricing Table Title', 'pricing-table')}
+					placeholder={__('Título de la tabla de precios', 'pricing-table')}
 					style={{ color: titleColor }}
 				/>
 
 				<div className="pricing-table-container">
-					{plans.map((plan, planIndex) => (
+					{plans.map((plan) => (
 						<div
 							key={plan.id}
 							className={`pricing-plan ${plan.highlight ? 'pricing-plan-highlight' : ''}`}
-							style={{ backgroundColor: plan.color }}
+							data-id={plan.id}
 						>
 							<div className="pricing-plan-header">
 								<RichText
 									tagName="h3"
 									className="pricing-plan-name"
 									value={plan.name}
-									onChange={(value) => updatePlanAttribute(planIndex, 'name', value)}
-									placeholder={__('Plan Name', 'pricing-table')}
+									onChange={(value) => updatePlanAttribute(plans.indexOf(plan), 'name', value)}
+									placeholder={__('Nombre del plan', 'pricing-table')}
 								/>
-								<div className="pricing-plan-price">
-									<RichText
+							</div>
+							<div className="pricing-plan-price">
+								<RichText
+									tagName="div"
+									className="pricing-plan-amount"
+									value={plan.price}
+									onChange={(value) => updatePlanAttribute(plans.indexOf(plan), 'price', value)}
+									placeholder={__('Precio', 'pricing-table')}
+								/>
+								<div className="pricing-plan-period">
+									/ <RichText
 										tagName="span"
-										className="price"
-										value={plan.price}
-										onChange={(value) => updatePlanAttribute(planIndex, 'price', value)}
-										placeholder={__('$XX', 'pricing-table')}
-									/>
-									<RichText
-										tagName="span"
-										className="period"
 										value={plan.period}
-										onChange={(value) => updatePlanAttribute(planIndex, 'period', value)}
-										placeholder={__('MONTH', 'pricing-table')}
+										onChange={(value) => updatePlanAttribute(plans.indexOf(plan), 'period', value)}
+										placeholder={__('Período', 'pricing-table')}
 									/>
 								</div>
 							</div>
-
-							<div className="pricing-plan-features">
-								{plan.features.map((feature, featureIndex) => (
-									<div key={featureIndex} className="pricing-plan-feature">
-										<span className="pricing-plan-check" style={{ color: iconColor }}>
+							<ul className="pricing-plan-features">
+								{plan.features.map((feature, index) => (
+									<li key={index} className="pricing-plan-feature">
+										<span 
+											className="pricing-plan-check" 
+											style={{ color: iconColor }}
+										>
 											✓
 										</span>
 										<RichText
 											tagName="span"
 											value={feature}
-											onChange={(value) => updateFeature(planIndex, featureIndex, value)}
-											placeholder={__('Feature', 'pricing-table')}
+											onChange={(value) => updateFeature(plans.indexOf(plan), index, value)}
+											placeholder={__('Característica', 'pricing-table')}
 										/>
-									</div>
+									</li>
 								))}
-							</div>
-
+							</ul>
 							<div className="pricing-plan-footer">
 								<RichText
 									tagName="a"
 									className="pricing-plan-button"
 									value={plan.buttonText}
-									onChange={(value) => updatePlanAttribute(planIndex, 'buttonText', value)}
-									placeholder={__('Sign Up', 'pricing-table')}
-									style={{ backgroundColor: buttonColor, color: '#ffffff' }}
+									onChange={(value) => updatePlanAttribute(plans.indexOf(plan), 'buttonText', value)}
+									placeholder={__('Texto del botón', 'pricing-table')}
 									href={plan.buttonUrl}
+									style={{ 
+										backgroundColor: buttonColor,
+										color: '#ffffff'
+									}}
 								/>
 							</div>
 						</div>
