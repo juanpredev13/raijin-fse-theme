@@ -2,7 +2,7 @@
  * The following styles get applied inside the editor only.
  */
 
- .wp-block-custom-blocks-hero-section {
+ .wp-block-raijin-hero-section {
     .hero-image-placeholder {
       min-height: 300px;
       display: flex;
@@ -56,7 +56,7 @@
   }
   
   // When the block is selected, highlight the editable areas
-  .is-selected .wp-block-custom-blocks-hero-section {
+  .is-selected .wp-block-raijin-hero-section {
     .hero-headline,
     .hero-description,
     .join-btn,

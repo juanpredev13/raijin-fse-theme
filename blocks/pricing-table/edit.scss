@@ -1,0 +1,173 @@
+// Import the frontend styles to ensure consistency
+@use "./style.scss" as *;
+
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-raijin-pricing-table {
+	padding: 20px;
+	background: #f8f9fa;
+	border-radius: 8px;
+	max-width: 1200px;
+	margin: 0 auto;
+
+	.pricing-table-block {
+		.pricing-table-title {
+			font-size: 3.5rem;
+			margin-bottom: 2rem;
+			text-align: center;
+		}
+
+		.pricing-table-container {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2rem;
+			padding: 1rem;
+		}
+
+		.pricing-plan {
+			background: #fff;
+			border-radius: 8px;
+			padding: 2rem;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease;
+			border: 1px dashed #ccc;
+			position: relative;
+
+			&.pricing-plan-highlight {
+				border: 1px dashed #0073aa;
+				transform: scale(1.05);
+				z-index: 1;
+			}
+
+			.pricing-plan-header {
+				text-align: center;
+				margin-bottom: 2rem;
+
+				.pricing-plan-name {
+					font-size: 1.5rem;
+					margin-bottom: 1rem;
+					color: inherit;
+				}
+
+				.pricing-plan-price {
+					font-size: 2.5rem;
+					font-weight: bold;
+					color: #4ecdc4;
+					display: flex;
+					align-items: baseline;
+					justify-content: center;
+					gap: 0.5rem;
+
+					.price {
+						margin-right: 0.5rem;
+					}
+
+					.period {
+						font-size: 1rem;
+						color: #666;
+					}
+				}
+			}
+
+			.pricing-plan-features {
+				margin: 2rem 0;
+
+				.pricing-plan-feature {
+					display: flex;
+					align-items: center;
+					margin-bottom: 1rem;
+					gap: 0.5rem;
+
+					.pricing-plan-check {
+						margin-right: 0.5rem;
+						font-size: 1.2rem;
+						flex-shrink: 0;
+					}
+
+					.rich-text {
+						flex: 1;
+					}
+				}
+			}
+
+			.pricing-plan-footer {
+				text-align: center;
+				margin-top: 2rem;
+
+				.pricing-plan-button {
+					display: inline-block;
+					padding: 0.8rem 2rem;
+					background-color: #4ecdc4;
+					color: #fff;
+					text-decoration: none;
+					border-radius: 4px;
+					transition: background-color 0.3s ease;
+					pointer-events: none;
+					cursor: default;
+				}
+			}
+		}
+	}
+}
+
+// Estilos específicos para los controles del editor
+.pricing-table-feature-item {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	gap: 10px;
+
+	.components-text-control__input {
+		flex: 1;
+	}
+}
+
+.pricing-table-actions {
+	margin-top: 20px;
+	padding-top: 15px;
+	border-top: 1px solid #e0e0e0;
+}
+
+/* Editor-specific overrides */
+.wp-block-raijin-pricing-table .pricing-plan {
+	border: 1px dashed #ccc;
+	background: #fff;
+}
+
+.wp-block-raijin-pricing-table .pricing-plan.pricing-plan-highlight {
+	border: 1px dashed #0073aa;
+}
+
+.wp-block-raijin-pricing-table .pricing-plan-button {
+	pointer-events: none;
+	cursor: default;
+}
+
+.wp-block-raijin-pricing-table .pricing-plan-features .pricing-plan-feature .pricing-plan-check {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+// Estilos para los elementos editables
+.block-editor-rich-text__editable {
+	&:focus {
+		outline: 2px solid #0073aa;
+		outline-offset: 2px;
+	}
+}
+
+// Estilos para el contenedor del bloque
+.block-editor-block-list__block {
+	&.wp-block-raijin-pricing-table {
+		padding: 20px;
+	}
+}
