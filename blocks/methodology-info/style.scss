@@ -26,14 +26,14 @@ $raisin-black: #252428;
   }
 
   .methodology-info-title {
-    font-size: 48px;
+    font-size: var(--wp--preset--font-size--xx-large);
     line-height: 1.1;
     margin-bottom: 24px;
     font-weight: 800;
   }
 
   .methodology-info-description {
-    font-size: 22px;
+    font-size: var(--wp--preset--font-size--medium);
     line-height: 1.5;
     margin: 0 0 40px 0;
     color: var(--wp--preset--color--antiflash-white);
@@ -52,7 +52,7 @@ $raisin-black: #252428;
     background: var(--wp--preset--color--polynesian-blue);
     color: #fff;
     border-radius: 30px;
-    font-size: 1.1rem;
+    font-size: var(--wp--preset--font-size--normal);
     font-weight: 700;
     text-decoration: none;
     box-shadow: 0 4px 16px rgba(14, 78, 138, 0.08);
@@ -75,16 +75,16 @@ $raisin-black: #252428;
       padding: 40px 16px;
     }
     .methodology-info-title {
-      font-size: 32px;
+      font-size: var(--wp--preset--font-size--x-large);
       margin-bottom: 16px;
     }
     .methodology-info-description {
-      font-size: 16px;
+      font-size: var(--wp--preset--font-size--normal);
       margin-bottom: 30px;
     }
     .methodology-info-button {
       padding: 12px 28px;
-      font-size: 1rem;
+      font-size: var(--wp--preset--font-size--normal);
     }
   }
 
@@ -94,14 +94,14 @@ $raisin-black: #252428;
       border-radius: 12px;
     }
     .methodology-info-title {
-      font-size: 22px;
+      font-size: var(--wp--preset--font-size--large);
     }
     .methodology-info-description {
-      font-size: 14px;
+      font-size: var(--wp--preset--font-size--small);
     }
     .methodology-info-button {
       padding: 10px 18px;
-      font-size: 0.95rem;
+      font-size: var(--wp--preset--font-size--small);
     }
   }
 }

@@ -177,56 +177,43 @@
 							"src": [ "file:./assets/fonts/lora-v23-latin-ext_latin-italic.woff2" ]
 						}
 					]
+				},
+				{
+					"fontFamily": "var(--wp--preset--font-family--system-font)",
+					"slug": "system-font",
+					"name": "System Font"
 				}
 			],
 			"fontSizes": [
 				{
-					"slug": "extra-small",
-					"size": "1rem",
-					"name": "Extra small",
-					"fluid": false
+					"slug": "small",
+					"size": "14px",
+					"name": "Small"
 				},
 				{
-					"slug": "small",
-					"size": "1.125rem",
-					"name": "Small",
-					"fluid": false
+					"slug": "normal",
+					"size": "16px",
+					"name": "Normal"
 				},
 				{
 					"slug": "medium",
-					"size": "1.25rem",
-					"name": "Medium",
-					"fluid": {
-						"min": "1.25rem",
-						"max": "1.5rem"
-					}
+					"size": "20px",
+					"name": "Medium"
 				},
 				{
 					"slug": "large",
-					"size": "2rem",
-					"name": "Large",
-					"fluid": {
-						"min": "1.75rem",
-						"max": "2rem"
-					}
+					"size": "28px",
+					"name": "Large"
 				},
 				{
 					"slug": "x-large",
-					"size": "2.75rem",
-					"name": "XL",
-					"fluid": {
-						"min": "2.5rem",
-						"max": "2.75rem"
-					}
+					"size": "36px",
+					"name": "Extra Large"
 				},
 				{
 					"slug": "xx-large",
-					"size": "3.75rem",
-					"name": "XXL",
-					"fluid": {
-						"min": "3rem",
-						"max": "3.75rem"
-					}
+					"size": "48px",
+					"name": "2X Large"
 				}
 			]
 		},
