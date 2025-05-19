@@ -9,3 +9,4 @@ import './course-cards-block/';
 import './hero-section/';
 import './methodology-info/';
 import './pricing-table/';
+import './features-cards/';
