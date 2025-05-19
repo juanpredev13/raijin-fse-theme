@@ -1,0 +1,130 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"default"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+    <!-- wp:group {"layout":{"type":"constrained"}} -->
+    <div class="wp-block-group">
+        <!-- wp:post-title {"level":1,"className":"service-title","style":{"typography":{"fontSize":"var:preset|font-size|xx-large"}}} /-->
+        
+        <!-- wp:group {"className":"service-meta","style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+        <div class="wp-block-group service-meta">
+            <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|normal"}}} -->
+            <p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                </svg>
+                Duration: <!-- wp:post-custom-field {"key":"service_duration"} /-->
+            </p>
+            <!-- /wp:paragraph -->
+            
+            <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|normal"}}} -->
+            <p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                </svg>
+                Category: <!-- wp:post-custom-field {"key":"service_category"} /-->
+            </p>
+            <!-- /wp:paragraph -->
+        </div>
+        <!-- /wp:group -->
+        
+        <!-- wp:post-excerpt {"className":"service-excerpt","style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} /-->
+    </div>
+    <!-- /wp:group -->
+    
+    <!-- wp:group {"className":"service-content","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|50"}}} -->
+    <div class="wp-block-group service-content">
+        <!-- wp:group {"className":"service-description","style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
+        <div class="wp-block-group service-description">
+            <!-- wp:heading {"style":{"typography":{"fontSize":"var:preset|font-size|large"}}} -->
+            <h2>About This Service</h2>
+            <!-- /wp:heading -->
+            
+            <!-- wp:post-content {"style":{"typography":{"fontSize":"var:preset|font-size|normal"}}} /-->
+            
+            <!-- wp:post-featured-image {"className":"service-image","style":{"border":{"radius":"8px"}}} /-->
+            
+            <!-- wp:group {"className":"service-features","style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
+            <div class="wp-block-group service-features">
+                <!-- wp:heading {"style":{"typography":{"fontSize":"var:preset|font-size|large"}}} -->
+                <h2>Key Features</h2>
+                <!-- /wp:heading -->
+                
+                <!-- wp:group {"className":"features-grid","layout":{"type":"grid","minimumColumnWidth":"300px"}} -->
+                <div class="wp-block-group features-grid">
+                    <!-- wp:pattern {"slug":"services/features-list"} /-->
+                </div>
+                <!-- /wp:group -->
+            </div>
+            <!-- /wp:group -->
+        </div>
+        <!-- /wp:group -->
+        
+        <!-- wp:group {"className":"product-sidebar","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","right":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40"}},"border":{"radius":"8px"}},"backgroundColor":"polynesian-blue","textColor":"antiflash-white"} -->
+        <div class="wp-block-group product-sidebar">
+            <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+            <h3>Related Product</h3>
+            <!-- /wp:heading -->
+            
+            <!-- wp:pattern {"slug":"services/related-product"} /-->
+        </div>
+        <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+    
+    <!-- wp:group {"className":"related-services","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|50"}}} -->
+    <div class="wp-block-group related-services">
+        <!-- wp:heading {"textAlign":"center","style":{"typography":{"fontSize":"var:preset|font-size|large"}}} -->
+        <h2 class="has-text-align-center">Related Services</h2>
+        <!-- /wp:heading -->
+        
+        <!-- wp:query {"queryId":1,"query":{"perPage":3,"postType":"services","exclude":[{"type":"post","value":"current"}],"order":"desc","orderBy":"date"},"displayLayout":{"type":"flex","columns":3},"className":"services-grid","style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
+        <div class="wp-block-query services-grid">
+            <!-- wp:post-template -->
+                <!-- wp:group {"className":"service-card","style":{"border":{"radius":"8px"},"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}},"backgroundColor":"antiflash-white"}} -->
+                <div class="wp-block-group service-card">
+                    <!-- wp:post-featured-image {"className":"service-card-image","style":{"border":{"radius":"4px"}}} /-->
+                    
+                    <!-- wp:group {"className":"service-card-content","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
+                    <div class="wp-block-group service-card-content">
+                        <!-- wp:post-title {"level":3,"className":"service-card-title","style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} /-->
+                        
+                        <!-- wp:post-excerpt {"moreText":"Learn More","className":"service-card-excerpt","style":{"typography":{"fontSize":"var:preset|font-size|normal"}}} /-->
+                    </div>
+                    <!-- /wp:group -->
+                </div>
+                <!-- /wp:group -->
+            <!-- /wp:post-template -->
+        </div>
+        <!-- /wp:query -->
+    </div>
+    <!-- /wp:group -->
+    
+    <!-- wp:group {"className":"cta-section","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"var:preset|spacing|40","padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|40","bottom":"var:preset|spacing|60","left":"var:preset|spacing|40"}},"border":{"radius":"8px"}},"backgroundColor":"polynesian-blue","textColor":"antiflash-white"} -->
+    <div class="wp-block-group cta-section">
+        <!-- wp:heading {"textAlign":"center","style":{"typography":{"fontSize":"var:preset|font-size|large"}}} -->
+        <h2 class="has-text-align-center">Ready to Start Your Project?</h2>
+        <!-- /wp:heading -->
+        
+        <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|normal"}}} -->
+        <p class="has-text-align-center">Contact us today to discuss your web development needs and get a free consultation.</p>
+        <!-- /wp:paragraph -->
+        
+        <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+        <div class="wp-block-buttons">
+            <!-- wp:button {"className":"cta-primary","backgroundColor":"satin-sheen-gold","textColor":"raisin-black","style":{"border":{"radius":"4px"}}} -->
+            <div class="wp-block-button cta-primary"><a class="wp-block-button__link wp-element-button" href="/contact">Get a Quote</a></div>
+            <!-- /wp:button -->
+            
+            <!-- wp:button {"className":"cta-secondary","backgroundColor":"antiflash-white","textColor":"polynesian-blue","style":{"border":{"radius":"4px"}}} -->
+            <div class="wp-block-button cta-secondary"><a class="wp-block-button__link wp-element-button" href="/services">Learn More</a></div>
+            <!-- /wp:button -->
+        </div>
+        <!-- /wp:buttons -->
+    </div>
+    <!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->
