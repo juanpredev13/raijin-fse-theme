@@ -78,6 +78,9 @@ require_once get_theme_file_path( 'inc/register-block-styles.php' );
 // Block pattern and block category examples.
 require_once get_theme_file_path( 'inc/register-block-patterns.php' );
 
+// Custom Post Types
+require_once get_theme_file_path( 'inc/cpt/servicios.php' );
+
 /**
  * Enqueue custom blocks assets.
  *
@@ -138,3 +141,61 @@ function raijin_enqueue_editor_styles() {
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'raijin_enqueue_editor_styles' );
+// 1. Permitir la subida de SVG
+function permitir_svg_upload($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'permitir_svg_upload');
+
+// 2. Mostrar SVG correctamente en la biblioteca de medios
+function mostrar_svg_en_medios() {
+    echo '<style>
+        .attachment-266x266, .thumbnail img {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>';
+}
+add_action('admin_head', 'mostrar_svg_en_medios');
+
+// 3. Validar seguridad del SVG al subir (Evita scripts maliciosos)
+function verificar_seguridad_svg($file) {
+    if ($file['type'] === 'image/svg+xml') {
+        $contenido = file_get_contents($file['tmp_name']);
+        if (preg_match('/<script.*?>.*?<\/script>/is', $contenido)) {
+            $file['error'] = 'Por razones de seguridad, los SVG no deben contener scripts.';
+        }
+    }
+    return $file;
+}
+add_filter('wp_handle_upload_prefilter', 'verificar_seguridad_svg');
+
+// 4. Renderizar SVG en el editor de Gutenberg (Soporte en el Backend)
+function habilitar_svg_en_gutenberg() {
+    echo '<style>
+        .editor-post-featured-image img, 
+        .editor-post-featured-image .components-responsive-wrapper__content, 
+        .wp-block-image img {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>';
+}
+add_action('admin_head', 'habilitar_svg_en_gutenberg');
+
+// 5. Permitir que WordPress muestre SVG inline (para mejor escalabilidad y manipulación)
+function mostrar_svg_inline($content) {
+    // Buscar imágenes SVG en el contenido
+    $pattern = '/<img.*?src=["\']([^"\']+.svg)["\'].*?>/i';
+
+    return preg_replace_callback($pattern, function ($matches) {
+        $file = ABSPATH . str_replace(site_url('/'), '', $matches[1]);
+        if (file_exists($file)) {
+            return file_get_contents($file); // Reemplaza la etiqueta <img> por el SVG en línea
+        }
+        return $matches[0]; // Si no se encuentra el archivo, deja la imagen como está
+    }, $content);
+}
+add_filter('the_content', 'mostrar_svg_inline');
+
