@@ -80,6 +80,8 @@ require_once get_theme_file_path( 'inc/register-block-patterns.php' );
 
 // Custom Post Types
 require_once get_theme_file_path( 'inc/cpt/servicios.php' );
+require_once get_theme_file_path( 'inc/cpt/instructor.php' );
+require_once get_theme_file_path( 'inc/form/pre_registro_instructor.php' );
 
 /**
  * Enqueue custom blocks assets.
@@ -198,4 +200,11 @@ function mostrar_svg_inline($content) {
     }, $content);
 }
 add_filter('the_content', 'mostrar_svg_inline');
+
+// Cargar script de reCAPTCHA v3
+function cargar_recaptcha_script() {
+    wp_enqueue_script('recaptcha', 'https://www.google.com/recaptcha/api.js?render=6LcCyEsrAAAAAONBmjeEUZc9IZhRIySdPPmo2n99', array(), null, true);
+    wp_add_inline_script('recaptcha', 'var RECAPTCHA_SITE_KEY = "6LcCyEsrAAAAAONBmjeEUZc9IZhRIySdPPmo2n99";');
+}
+add_action('wp_enqueue_scripts', 'cargar_recaptcha_script');
 
