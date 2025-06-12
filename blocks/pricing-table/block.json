@@ -30,57 +30,7 @@
     },
     "plans": {
       "type": "array",
-      "default": [
-        {
-          "id": "free",
-          "name": "Like a pussy",
-          "price": "Free",
-          "period": "FOREVER",
-          "features": [
-            "Components-driven system",
-            "Sales-boosting landing pages",
-            "Awesome Feather icons pack"
-          ],
-          "buttonText": "Try for free",
-          "buttonUrl": "#",
-          "highlight": false,
-          "color": "var(--wp--preset--color--base)"
-        },
-        {
-          "id": "individual",
-          "name": "Individual",
-          "price": "$24",
-          "period": "MONTH",
-          "features": [
-            "Components-driven system",
-            "Sales-boosting landing pages",
-            "Awesome Feather icons pack",
-            "Themed into 3 different styles",
-            "Will help to learn Figma"
-          ],
-          "buttonText": "Regular license",
-          "buttonUrl": "#",
-          "highlight": true,
-          "highlightText": "BEST!",
-          "color": "var(--wp--preset--color--primary)"
-        },
-        {
-          "id": "corporate",
-          "name": "Corporate",
-          "price": "$12",
-          "period": "EDITOR",
-          "features": [
-            "Components-driven system",
-            "Sales-boosting landing pages",
-            "Awesome Feather icons pack",
-            "Themed into 3 different styles"
-          ],
-          "buttonText": "Extended license",
-          "buttonUrl": "#",
-          "highlight": false,
-          "color": "var(--wp--preset--color--secondary)"
-        }
-      ]
+      "default": []
     }
   },
   "textdomain": "pricing-table",
